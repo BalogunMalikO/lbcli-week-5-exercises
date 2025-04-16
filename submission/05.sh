@@ -8,7 +8,7 @@ hex=$(printf '%08x\n' $BLOCKHEIGHTS | sed 's/^\(00\)*//');
 hexfirst=$(echo $hex | cut -c1)
 [[ 0x$hexfirst -gt 0x7 ]] && hex="00"$hex
 
-lehex=$(echo $hex | tac -rs .. | echo "$(tr -d '\n')");
+LEHEX=$(echo $hex | tac -rs .. | echo "$(tr -d '\n')");
 
 SIZE=$(echo -n $lehex | wc -c | awk '{print $1/2}')
 
