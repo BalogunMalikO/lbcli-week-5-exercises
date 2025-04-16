@@ -10,7 +10,7 @@ hexfirst=$(echo $hex | cut -c1)
 
 lehex=$(echo $hex | tac -rs .. | echo "$(tr -d '\n')");
 
-SIZE=$(echo -n $lehex | wc -c | awk '(print $1/2)')
+SIZE=$(echo -n $lehex | wc -c | awk '{print $1/2}')
 
 PUBKEY_HASH=$(echo $publicKey | xxd -r -p | openssl sha256 -binary | openssl rmd160 | cut -d' ' -f2)
 
