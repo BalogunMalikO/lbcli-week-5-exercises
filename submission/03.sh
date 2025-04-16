@@ -3,6 +3,6 @@ RAW="020000000121654fa95d5a268abf96427e3292baed6c9f6d16ed9e80511070f954883864b10
 
 REDEEM_SCRIPT=$(bitcoin-cli -regtest decoderawtransaction $RAW | jq -r '.vin[0].scriptSig.asm | split(" ")| .[-1]')
 
-P2SH_SEGWIT=$(bitcoin-cli -regtest decodescript $REDEEM_SCRIPT | jq -r '.segwit | ."p2sh-Segwit"')
+P2SH_SEGWIT=$(bitcoin-cli -regtest decodescript $REDEEM_SCRIPT | jq -r '.segwit | ."p2sh-segwit"')
 
 echo $P2SH_SEGWIT
