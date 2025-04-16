@@ -10,11 +10,11 @@ hexfirst=$(echo $hex | cut -c1)
 
 LEHEX=$(echo $hex | tac -rs .. | echo "$(tr -d '\n')");
 
-SIZE=$(echo -n $lehex | wc -c | awk '{print $1/2}')
+SIZE=$(echo -n $LEHEX | wc -c | awk '{print $1/2}')
 
 PUBKEY_HASH=$(echo $publicKey | xxd -r -p | openssl sha256 -binary | openssl rmd160 | cut -d' ' -f2)
 
 #OP_PUSHDATA <BLOCKHEIGHT_LE_LENGTH> <BLOCKHEIGHT> OP_CHECKSEQUENCEVERIFY OP_DROP OP_DUP OP_HASH160 OP_PUSHDATA <PUBKEYHASHLENGTH> OP_EQUALVERIFY OP_CHECKSIG 
-CSV_SCIPT="0$SIZE"$LEHEX"b27576a914"$PUBKEY_HASH"88ac" 
+CSV_SCRIPT="0$SIZE"$LEHEX"b27576a914"$PUBKEY_HASH"88ac" 
 
-echo $CSV_SCIPT
+echo $CSV_SCRIPT
